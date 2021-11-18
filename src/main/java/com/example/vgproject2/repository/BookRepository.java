@@ -5,9 +5,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 
 @Repository
 public interface BookRepository extends JpaRepository<Book,Integer> {
-//    @Query(value = "insert into demo3.Book values (?,?)",nativeQuery = true)
-//    public void saveManual(int id,String name);
+    public Optional<Book> findByUsername(String username);
+
+
+    //select * from demo3.book1 where demo3.book1.username='sachin'
+    @Query(value = "select * from ?1 where ?2=?3",nativeQuery = true)
+    public Book findInPartition(String tablename,String key,String username);
+
+
+
+
 }

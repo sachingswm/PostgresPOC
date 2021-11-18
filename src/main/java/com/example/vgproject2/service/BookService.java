@@ -36,5 +36,14 @@ public class BookService {
         bookRepository.deleteAll();
     }
 
+    public Optional<Book> findByUsername(String username)
+    {
+        return bookRepository.findByUsername(username);
+    }
+
+    public Book findInPartition(String tablename,String key,String username)
+    {
+        return bookRepository.findInPartition(tablename,key,username);
+    }
 
 }

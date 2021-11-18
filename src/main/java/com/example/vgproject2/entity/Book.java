@@ -11,8 +11,28 @@ import javax.persistence.*;
 public class Book {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "phone")
+    private String phone;
+    @Column(name = "email")
+    private String email;
+    @Column(name="password")
+    private String password;
+    @Column(name="author")
+    private String author;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }
